@@ -9,9 +9,8 @@ model_path = "./model.pkl"
 df = pd.read_table(train_path,sep=' ',header=None)
 df = df.rename(columns={0: 'user_id', 19: 'score'})
 
-# train_df, test_df = train_test_split(train_df, test_size=0.3)
-train_df = df[1:1000]
-test_df = df[1000:1010]
+train_df = df[1:len(train_df)-100]
+test_df = df[len(train_df)-100:len(train_df)]
 
 
 cat_features = list(range(12))
