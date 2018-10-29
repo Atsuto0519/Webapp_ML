@@ -15,6 +15,7 @@ for j in 1:length(df_udata[1])
     df = hcat(df,convert(DataFrame,convert(Array,df_score[j, :])'))
 
     global df_train
+    df = df[df[:score].>-1,:]
     if j == 1
         df_train = join(df_train,df,on=:user_id)
     else
