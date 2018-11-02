@@ -10,8 +10,8 @@ df = pd.read_table(train_path,sep=' ',header=None)
 df = df.rename(columns={0: 'user_id', 19: 'score'})
 
 # テストデータには，最後のuser_idの人のみを使用．
-train_df = df[0:len(df)-100]
-test_df = df[len(df)-100:len(df)]
+train_df = df[0:len(df)-10]
+test_df = df[len(df)-10:len(df)]
 
 
 cat_features = list(range(12))
@@ -27,7 +27,7 @@ test_group_id = test_df["user_id"]
 test_pool = Pool(data=test_data, label=test_label, group_id=test_group_id, cat_features=cat_features)
 
 # YetiRankはpairwiseでのランク学習の1つ
-param = {'loss_function':'YetiRank', 'learning_rate': .05, 'iterations': 200,
+param = {'loss_function':'YetiRank', 'learning_rate': .05, 'iterations': 400,
          'depth': 4, 'use_best_model':True}
 model = CatBoost(param)
 model.fit(train_pool, eval_set=test_pool)
