@@ -8,9 +8,9 @@ develop*/
 *.csv
 *.xlxs
 *.xls
-*.pdf
+# *.pdf
 *.pptx
-*.png
+# *.png
 *.jpg
 *.jpeg
 *.eps
