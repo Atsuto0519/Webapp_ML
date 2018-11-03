@@ -24,3 +24,5 @@ doc/
 data/
 
 catboost_info/
+
+.ipynb_checkpoints
